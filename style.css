@@ -40,3 +40,5 @@ footer{display:flex;justify-content:space-between;padding:25px max(28px,calc((10
 .cap-grid>div:nth-child(3){border-top-color:var(--blue)}
 .cap-grid>div:nth-child(4){border-top-color:var(--green)}
 @media(max-width:600px){.brand{font-size:15px}}
+
+.product-link{display:flex;color:inherit;text-decoration:none}.product-link:hover{color:inherit;text-decoration:none}.product-link h3{color:white}.product-link p{color:#a7a7a2}
