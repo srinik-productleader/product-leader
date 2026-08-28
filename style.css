@@ -42,3 +42,6 @@ footer{display:flex;justify-content:space-between;padding:25px max(28px,calc((10
 @media(max-width:600px){.brand{font-size:15px}}
 
 .product-link{display:flex;color:inherit;text-decoration:none}.product-link:hover{color:inherit;text-decoration:none}.product-link h3{color:white}.product-link p{color:#a7a7a2}
+
+/* Contact portfolio cleanup */
+.cards > *:empty{display:none!important}
