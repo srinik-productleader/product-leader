@@ -14,6 +14,51 @@
 @media(max-width:900px){.phases{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.principles-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.phases{grid-template-columns:1fr}}
 </style>
+
+<!-- Mixpanel Analytics -->
+<script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.mixpanel) return;
+
+  mixpanel.init("cf11b1e1ee4712995d214e553d973f75", {
+    autocapture: true,
+    track_pageview: true,
+    persistence: "localStorage"
+  });
+
+  document.querySelectorAll('a[href*="case-studies/"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      var heading = link.querySelector("h3");
+      mixpanel.track("Product Roadmap Viewed", {
+        product: heading ? heading.textContent.trim() : link.textContent.trim(),
+        source: "featured_work"
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      mixpanel.track("Contact Intent", {
+        channel: link.href.indexOf("mailto:") === 0 ? "email" : "phone"
+      });
+    });
+  });
+});
+</script>
+<!-- End Mixpanel Analytics -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.mixpanel) return;
+  var h1 = document.querySelector("h1");
+  mixpanel.track("Product Roadmap Viewed", {
+    product: h1 ? h1.textContent.trim() : document.title,
+    source: "case_study"
+  });
+});
+</script>
+
 </head>
 <body>
 <header class="nav">

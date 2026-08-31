@@ -1,6 +1,51 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KYC Automation | Srinivasan Krishnamoorthy</title><link rel="stylesheet" href="../style.css"><style>
 .case-hero,.principles{max-width:1180px;margin:auto;padding:85px 28px 70px}.case-hero h1{font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-.055em;max-width:900px}.case-lead{max-width:760px;font-size:18px;color:#66645f}.back{display:inline-block;margin-bottom:40px;font-weight:750;color:#66645f}.metrics{max-width:1180px;margin:0 auto 80px;padding:0 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dddcd5}.metrics div{background:#fff;padding:25px}.metrics strong{display:block;font-size:25px}.metrics span{font-size:12px;color:#777}.roadmap{background:#101111;color:#fff;padding:90px max(28px,calc((100vw - 1180px)/2))}.roadmap h2{font-size:clamp(38px,4vw,58px);line-height:1.02;letter-spacing:-.05em}.intro{max-width:680px;color:#aaa;margin-bottom:50px}.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.phase{min-height:390px;padding:27px;border:1px solid #303131;border-radius:20px;background:#1b1c1c;position:relative}.phase:nth-child(1){border-top:4px solid #ff5a36}.phase:nth-child(2){border-top:4px solid #7c4dff}.phase:nth-child(3){border-top:4px solid #1687ff}.phase:nth-child(4){border-top:4px solid #19a974}.phase h3{font-size:25px;margin:45px 0 10px}.phase ul{padding-left:18px;color:#c0c0bb;font-size:13px}.phase li{margin:10px 0}.outcome{position:absolute;left:27px;right:27px;bottom:24px;border-top:1px solid #333;padding-top:13px;font-size:12px;font-weight:700}.principles{padding-top:90px}.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.principle{border-top:2px solid #111;padding-top:18px}.principle p{font-size:13px;color:#66645f}.cta{background:#ff5a36;color:#fff;text-align:center;padding:75px 28px}.cta h2{font-size:42px}.cta a{background:#fff;color:#111;padding:13px 20px;border-radius:999px;font-weight:750}@media(max-width:900px){.phases{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.principles-grid{grid-template-columns:1fr}}@media(max-width:600px){.phases{grid-template-columns:1fr}}
-</style></head><body>
+</style>
+<!-- Mixpanel Analytics -->
+<script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.mixpanel) return;
+
+  mixpanel.init("cf11b1e1ee4712995d214e553d973f75", {
+    autocapture: true,
+    track_pageview: true,
+    persistence: "localStorage"
+  });
+
+  document.querySelectorAll('a[href*="case-studies/"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      var heading = link.querySelector("h3");
+      mixpanel.track("Product Roadmap Viewed", {
+        product: heading ? heading.textContent.trim() : link.textContent.trim(),
+        source: "featured_work"
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      mixpanel.track("Contact Intent", {
+        channel: link.href.indexOf("mailto:") === 0 ? "email" : "phone"
+      });
+    });
+  });
+});
+</script>
+<!-- End Mixpanel Analytics -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.mixpanel) return;
+  var h1 = document.querySelector("h1");
+  mixpanel.track("Product Roadmap Viewed", {
+    product: h1 ? h1.textContent.trim() : document.title,
+    source: "case_study"
+  });
+});
+</script>
+
+</head><body>
 <header class="nav"><a class="brand" href="../index.html">Srinivasan Krishnamoorthy</a><nav><a href="../index.html#about">About</a><a href="../index.html#products">Products</a><a href="../index.html#thinking">Product Thinking</a><a href="../index.html#experience">Experience</a></nav><a class="nav-cta" href="../index.html">Home</a></header>
 <main><section class="case-hero"><a class="back" href="../index.html#products">← Back to featured work</a><p class="eyebrow">PRODUCT CASE STUDY · AI · RISK & COMPLIANCE</p><h1>KYC Automation</h1><p class="case-lead">Transform KYC from document-heavy manual review into a risk-based, intelligent and continuously monitored operating model.</p></section>
 <section class="roadmap"><p class="eyebrow">PRODUCT ROADMAP</p><h2>From foundation to intelligent optimisation.</h2><p class="intro">A progressive product journey that starts with a strong digital foundation, automates repeatable work, introduces intelligent decision support and continuously improves from product outcomes.</p><div class="phases"><article class="phase"><small>01</small><h3>Collect</h3><ul><li>Digital KYC data collection</li><li>Document capture and classification</li><li>Pre-fill and data quality checks</li><li>Define customer and regulatory journeys</li></ul><div class="outcome">Complete and consistent KYC data</div></article><article class="phase"><small>02</small><h3>Verify</h3><ul><li>Identity verification</li><li>Document authenticity checks</li><li>Data cross-validation</li><li>Route exceptions for specialist review</li></ul><div class="outcome">Faster and more consistent verification</div></article><article class="phase"><small>03</small><h3>Assess</h3><ul><li>Risk-based screening workflows</li><li>Rules and AI-assisted review</li><li>Prioritise cases by risk and complexity</li><li>Human-in-the-loop decision controls</li></ul><div class="outcome">Efficient risk assessment with stronger controls</div></article><article class="phase"><small>04</small><h3>Monitor</h3><ul><li>Ongoing KYC review triggers</li><li>Change and exception monitoring</li><li>Audit-ready case history</li><li>Analytics to improve review prioritisation</li></ul><div class="outcome">Continuous compliance and better efficiency</div></article></div></section>
