@@ -47,8 +47,8 @@
     autocapture: true,
     track_pageview: true,
     persistence: "localStorage",
-    batch_requests: true,
-    api_host: "https://api.mixpanel.com"
+    api_host: "https://api-eu.mixpanel.com",
+    debug: false
   });
 
   function textOf(element) {

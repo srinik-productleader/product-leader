@@ -1,21 +1,21 @@
-# Mixpanel analytics
+# Mixpanel tracking
 
 This static portfolio is configured for Mixpanel project token `cf11b1e1ee4712995d214e553d973f75`.
 
-## Tracking included
+The project is hosted in Mixpanel's EU data centre, so the SDK is configured with:
 
-- Automatic page views and Mixpanel autocapture
-- `Product Roadmap Viewed` when a case study is opened and when a case-study page loads
-- `Contact Intent` for email and phone links
-- `Resume Viewed` for CV/resume links
-- `Section Viewed` for in-page navigation links
+```js
+api_host: "https://api-eu.mixpanel.com"
+```
 
-## Deployment validation
+Tracked behaviour includes page views, autocapture, product roadmap clicks, contact intent, resume clicks, and section navigation.
 
-1. Upload the complete ZIP contents to the website host or GitHub Pages.
-2. Open the deployed site in a normal browser tab.
-3. Visit the homepage, open a product roadmap, and click the CV or contact link.
-4. In Mixpanel, open **Live View** and confirm that page-view activity and the custom events appear.
-5. If Live View remains empty, check the browser console and Network tab for requests to `cdn.mxpnl.com` and `api.mixpanel.com`; ad blockers, privacy extensions, CSP rules, or an incorrect project token can prevent delivery.
+## Verification
 
-The implementation uses Mixpanel's queueing snippet so events are queued while the Mixpanel library loads, rather than being silently discarded when the external script has not finished loading.
+1. Deploy the site to its normal HTTPS hosting environment.
+2. Open the deployed homepage in a fresh browser tab.
+3. Visit a case-study page and click a contact or CV link.
+4. In Mixpanel, open **Events** or **Live View** for project `4059205`.
+5. Confirm that new events are arriving in the EU project.
+
+If no events appear, temporarily disable browser ad/privacy blockers and check the browser Network panel for requests to `api-eu.mixpanel.com`.
